@@ -54,7 +54,6 @@ class ViewController: UIViewController {
   private func label1Style() {
     menulabel1.frame = CGRect(x: 30, y: 50, width: 100, height: 50)
     menulabel1.text = "짜장면"
-//    menulabel1.backgroundColor = #colorLiteral(red: 0.7254902124, green: 0.4784313738, blue: 0.09803921729, alpha: 1)
     menulabel1.textAlignment = .center
     view.addSubview(menulabel1)
   }
@@ -62,7 +61,6 @@ class ViewController: UIViewController {
   private func label2Style() {
     menulabel2.frame = CGRect(x: 130, y: 50, width: 100, height: 50)
     menulabel2.text = "짬뽕"
-//    menulabel2.backgroundColor = #colorLiteral(red: 0.7254902124, green: 0.4784313738, blue: 0.09803921729, alpha: 1)
     menulabel2.textAlignment = .center
     view.addSubview(menulabel2)
   }
@@ -70,7 +68,6 @@ class ViewController: UIViewController {
   private func label3Style() {
     menulabel3.frame = CGRect(x: 230, y: 50, width: 100, height: 50)
     menulabel3.text = "탕수육"
-//    menulabel3.backgroundColor = #colorLiteral(red: 0.7254902124, green: 0.4784313738, blue: 0.09803921729, alpha: 1)
     menulabel3.textAlignment = .center
     view.addSubview(menulabel3)
   }
@@ -78,7 +75,6 @@ class ViewController: UIViewController {
   private func menuCount1Style() {
     menuCount1.frame = CGRect(x: 30, y: 120, width: 100, height: 50)
     menuCount1.text = "0"
-//    menuCount1.backgroundColor = #colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 1)
     menuCount1.textAlignment = .center
     view.addSubview(menuCount1)
   }
@@ -86,7 +82,6 @@ class ViewController: UIViewController {
   private func menuCount2Style() {
     menuCount2.frame = CGRect(x: 130, y: 120, width: 100, height: 50)
     menuCount2.text = "0"
-//    menuCount2.backgroundColor = #colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 1)
     menuCount2.textAlignment = .center
     view.addSubview(menuCount2)
   }
@@ -94,7 +89,6 @@ class ViewController: UIViewController {
   private func menuCount3Style() {
     menuCount3.frame = CGRect(x: 230, y: 120, width: 100, height: 50)
     menuCount3.text = "0"
-//    menuCount3.backgroundColor = #colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 1)
     menuCount3.textAlignment = .center
     view.addSubview(menuCount3)
   }
@@ -102,7 +96,6 @@ class ViewController: UIViewController {
   private func menuBtn1Style() {
     menuBtn1.setTitle("추가", for: .normal)
     menuBtn1.frame = CGRect(x: 30, y: 190, width: 100, height: 50)
-//    menuBtn1.backgroundColor = #colorLiteral(red: 0.3098039329, green: 0.2039215714, blue: 0.03921568766, alpha: 1)
     menuBtn1.addTarget(self, action: #selector(menuBtn1Action), for: .touchUpInside)
     view.addSubview(menuBtn1)
   }
@@ -110,7 +103,6 @@ class ViewController: UIViewController {
   private func menuBtn2Style() {
     menuBtn2.setTitle("추가", for: .normal)
     menuBtn2.frame = CGRect(x: 130, y: 190, width: 100, height: 50)
-//    menuBtn2.backgroundColor = #colorLiteral(red: 0.3098039329, green: 0.2039215714, blue: 0.03921568766, alpha: 1)
     menuBtn2.addTarget(self, action: #selector(menuBtn2Action), for: .touchUpInside)
     view.addSubview(menuBtn2)
   }
@@ -118,7 +110,6 @@ class ViewController: UIViewController {
   private func menuBtn3Style() {
     menuBtn3.setTitle("추가", for: .normal)
     menuBtn3.frame = CGRect(x: 230, y: 190, width: 100, height: 50)
-//    menuBtn3.backgroundColor = #colorLiteral(red: 0.3098039329, green: 0.2039215714, blue: 0.03921568766, alpha: 1)
     menuBtn3.addTarget(self, action: #selector(menuBtn3Action), for: .touchUpInside)
     view.addSubview(menuBtn3)
   }

@@ -39,7 +39,7 @@ class ViewController: UIViewController {
   @objc private func refreshAction() {
     data.removeAll()
     data += userCheckDataArr
-    print(data)
+    
     for _ in 1...dataMaxCount - userCheckDataArr.count {
       data.append(randomNumber())
     }
@@ -55,6 +55,7 @@ class ViewController: UIViewController {
     if data.contains(result) {
       return randomNumber()
     }
+    
     return result
   }
 }
@@ -70,22 +71,31 @@ extension ViewController: UITableViewDataSource {
     
     return cell
   }
-  
+}
+
+extension ViewController: UITableViewDelegate {
+  // 셀 컨택했을 때 작동하는 함수
   func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
     if let cell = tableView.cellForRow(at: indexPath),
-      let text = cell.textLabel?.text,
-      let num = Int(text) {
+    let text = cell.textLabel?.text,
+    let num = Int(text) {
       if num > 7 {
         userCheckDataArr.append(num)
         return indexPath
       }
     }
+    
     return nil
   }
-  
-//  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//    <#code#>
-//  }
+  // 셀 컨택하고 취소할 때 작동하는 함수
+  func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+    if let cell = tableView.cellForRow(at: indexPath),
+      let text = cell.textLabel?.text,
+      let num = Int(text) {
+      let index = userCheckDataArr.firstIndex(of: num)
+      userCheckDataArr.remove(at: index!)
+    }
+  }
 }
 
 

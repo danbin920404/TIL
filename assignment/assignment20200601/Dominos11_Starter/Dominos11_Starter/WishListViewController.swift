@@ -19,7 +19,6 @@ class WishListViewController: UIViewController {
     setupWishTableView()
   }
   override func viewWillAppear(_ animated: Bool) {
-//    listKeys = Array(DataWishListDics.keys)
     for (key, _) in DataWishListDics {
       if !wishMenuName.contains(key) {
         wishMenuName.append(key)
@@ -50,36 +49,47 @@ class WishListViewController: UIViewController {
   @objc private func oderDeleteBtnAction(_ sender: UIBarItem) {
     
     let alert = UIAlertController (title: "결제내역", message: totalMenuCount(), preferredStyle: .alert)
-    let alertAction = UIAlertAction(title: "결제", style: .default)
-    alert.addAction(alertAction)
+    let alertAction1 = UIAlertAction(title: "결제", style: .default) { _ in
+      DataWishListDics.removeAll()
+      self.wishMenuName.removeAll()
+      self.wishListTableView.reloadData()
+    }
+    let alertAction2 = UIAlertAction(title: "취소", style: .default)
+    alert.addAction(alertAction1)
+    alert.addAction(alertAction2)
     present(alert, animated: true)
-    
-    DataWishListDics.removeAll()
-    wishMenuName.removeAll()
-    wishListTableView.reloadData()
   }
   func totalMenuCount() -> String {
     var totalMessage = ""
     var totalMoney = 0
     for index in wishMenuName {
       totalMessage += (index + " - " + "\(DataWishListDics[index]!)개\n")
-      for (key, value) in Data {
-        if let priceCheck = Data[key]!["menu"]?.filter {
-          if $0.con
+      for (_, value) in Data {
+        if value["menu"]!.contains(where: { (str: Any) -> Bool in
+          if let test = str as? String {
+            if test == index {
+              return true
+            }
+          }
+          return false
+        }) {
+          if let price = value["price"]![0] as? Int {
+            totalMoney += price
+          }
         }
       }
     }
+    totalMessage += "\(totalMoney) 원"
+    
     return totalMessage
   }
 }
 extension WishListViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return wishMenuName.count // 딕셔너리menu 키 갯수
+    return wishMenuName.count
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    
-    
     let wishListCell = wishListTableView.dequeueReusableCell(withIdentifier: "Custom") ?? UITableViewCell(style: .subtitle, reuseIdentifier: "Custom")
     wishListCell.textLabel?.text = "\(wishMenuName[indexPath.row])"
     wishListCell.imageView?.image = UIImage(named: wishMenuName[indexPath.row])

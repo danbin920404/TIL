@@ -1,0 +1,6 @@
+framework module Pods_YouTubePlayerExample {
+  umbrella header "Pods-YouTubePlayerExample-umbrella.h"
+
+  export *
+  module * { export * }
+}

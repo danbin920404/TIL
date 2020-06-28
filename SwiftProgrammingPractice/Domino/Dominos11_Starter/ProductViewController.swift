@@ -65,7 +65,8 @@ extension ProductViewController: UITableViewDataSource {
 extension ProductViewController: UITableViewDelegate {
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     let detailVC = DetailViewController()
-    detailVC.naviTitle = products[indexPath.row].name
+    detailVC.pickMenuInformation = products[indexPath.row]
+     
     
     navigationController?.pushViewController(detailVC, animated: true)
   }

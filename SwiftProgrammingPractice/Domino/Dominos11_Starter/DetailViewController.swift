@@ -18,18 +18,23 @@ final class DetailViewController: UIViewController {
   private let displayLabel = UILabel()
   private let plusBtn = UIButton()
   private let minusBtn = UIButton()
-  var naviTitle = ""
+  private var menuCount = 0 {
+    didSet {
+      displayLabel.text = "\(menuCount)"
+    }
+  }
+  var pickMenuInformation: Product = Product(name: "", price: 0)
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
+    print(pickMenuInformation)
     setupNavi()
     setupView()
     setupConstraint()
   }
   
   private func setupNavi() {
-    navigationItem.title = naviTitle
+    navigationItem.title = pickMenuInformation.name
   }
   
   private func setupView() {
@@ -41,21 +46,24 @@ final class DetailViewController: UIViewController {
     tempView.addSubview(minusBtn)
     
     tempView.layer.borderColor = UIColor.black.cgColor
-    tempView.layer.borderWidth = 1.0
+    tempView.layer.borderWidth = 3.0
+    tempView.layer.cornerRadius = 5
     
+    displayLabel.text = "\(menuCount)"
     displayLabel.backgroundColor = .gray
-    displayLabel.text = "0 개"
     displayLabel.textAlignment = .center
     
-    plusBtn.setTitle("-", for: .normal)
-    plusBtn.setTitleColor(.black, for: .normal)
-    
-    minusBtn.setTitle("+", for: .normal)
+    minusBtn.setTitle("-", for: .normal)
     minusBtn.setTitleColor(.black, for: .normal)
+    minusBtn.addTarget(self, action: #selector(plusAndMinusBtnAction), for: .touchUpInside)
+    
+    plusBtn.setTitle("+", for: .normal)
+    plusBtn.setTitleColor(.black, for: .normal)
+    plusBtn.addTarget(self, action: #selector(plusAndMinusBtnAction), for: .touchUpInside)
   }
   
   private func setupConstraint() {
-    menuImageView.image = UIImage(named: naviTitle)
+    menuImageView.image = UIImage(named: pickMenuInformation.name)
     menuImageView.translatesAutoresizingMaskIntoConstraints = false
     menuImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 60).isActive = true
     menuImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
@@ -86,7 +94,21 @@ final class DetailViewController: UIViewController {
     plusBtn.trailingAnchor.constraint(equalTo: tempView.trailingAnchor).isActive = true
     plusBtn.bottomAnchor.constraint(equalTo: tempView.bottomAnchor).isActive = true
     plusBtn.widthAnchor.constraint(equalTo: tempView.widthAnchor, multiplier: 0.2).isActive = true
-    
+  }
+  
+  private func wishList(pickMenu: Product, count: Int) {
+//    guard let index = singleton.data else { return }
+  }
+  
+  @objc private func plusAndMinusBtnAction(_ sender: UIButton) {
+    switch sender {
+    case plusBtn:
+      menuCount += 1
+    default:
+      if menuCount > 0 {
+        menuCount -= 1
+      }
+    }
   }
   
 }

@@ -16,6 +16,7 @@
 		4FD504E1247CD3C5009BE623 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4FD504E0247CD3C5009BE623 /* Assets.xcassets */; };
 		4FD504E4247CD3C5009BE623 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FD504E2247CD3C5009BE623 /* LaunchScreen.storyboard */; };
 		CE1F20EA2498DC1A00814793 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1F20E92498DC1A00814793 /* CategoryCell.swift */; };
+		CE1F20EC2499AD7F00814793 /* PickMenuDATA.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1F20EB2499AD7F00814793 /* PickMenuDATA.swift */; };
 		CEC140572498D1DE003A9A2F /* StructDATA.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC140562498D1DE003A9A2F /* StructDATA.swift */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +32,7 @@
 		4FD504E3247CD3C5009BE623 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4FD504E5247CD3C5009BE623 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE1F20E92498DC1A00814793 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
+		CE1F20EB2499AD7F00814793 /* PickMenuDATA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickMenuDATA.swift; sourceTree = "<group>"; };
 		CEC140562498D1DE003A9A2F /* StructDATA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StructDATA.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -91,6 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				CEC140562498D1DE003A9A2F /* StructDATA.swift */,
+				CE1F20EB2499AD7F00814793 /* PickMenuDATA.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -169,6 +172,7 @@
 				CEC140572498D1DE003A9A2F /* StructDATA.swift in Sources */,
 				4FD504D8247CD3C3009BE623 /* AppDelegate.swift in Sources */,
 				4F607EB3247CF7D60045C4B0 /* WishListViewController.swift in Sources */,
+				CE1F20EC2499AD7F00814793 /* PickMenuDATA.swift in Sources */,
 				CE1F20EA2498DC1A00814793 /* CategoryCell.swift in Sources */,
 				4F607EAD247CF7820045C4B0 /* CategoryViewController.swift in Sources */,
 				4F607EB1247CF7CC0045C4B0 /* DetailViewController.swift in Sources */,

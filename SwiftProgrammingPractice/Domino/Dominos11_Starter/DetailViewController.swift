@@ -9,6 +9,8 @@
 import UIKit
 
 final class DetailViewController: UIViewController {
+  private let shared = Singleton.shared
+  
   private struct Standard {
     static let space: CGFloat = 48
   }
@@ -27,7 +29,7 @@ final class DetailViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    print(pickMenuInformation)
+    
     setupNavi()
     setupView()
     setupConstraint()
@@ -96,10 +98,6 @@ final class DetailViewController: UIViewController {
     plusBtn.widthAnchor.constraint(equalTo: tempView.widthAnchor, multiplier: 0.2).isActive = true
   }
   
-  private func wishList(pickMenu: Product, count: Int) {
-//    guard let index = singleton.data else { return }
-  }
-  
   @objc private func plusAndMinusBtnAction(_ sender: UIButton) {
     switch sender {
     case plusBtn:
@@ -109,6 +107,8 @@ final class DetailViewController: UIViewController {
         menuCount -= 1
       }
     }
+    guard menuCount != 0 else { shared.wishListDict[pickMenuInformation.name] = nil; return }
+    shared.wishListDict[pickMenuInformation.name] = menuCount
   }
   
 }

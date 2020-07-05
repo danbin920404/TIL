@@ -8,22 +8,9 @@
 
 import Foundation
 
-struct PickMenu {
-  let name: String
-  let informations: [Information]
-  
-}
-
-struct Information {
-  let count: Int
-  let total: Int
-}
-
-class Singleton {
+final class Singleton {
   static let shared = Singleton()
   private init() {}
   
-  var data = [PickMenu]()
+  var wishListDict: [String: Int] = [:]
 }
-
-let singleton = Singleton.shared
